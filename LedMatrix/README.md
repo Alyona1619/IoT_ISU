@@ -1,4 +1,4 @@
-<video src='(https://youtu.be/82xAW-GQ7RA)' width=180/>
+[Demonstration on YouTube]([http://test.com/](https://youtu.be/82xAW-GQ7RA))
 
 | leds   |   D7   |   D8   |   D11  |   D12  |
 |--------|--------|--------|--------|--------|
