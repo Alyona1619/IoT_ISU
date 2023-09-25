@@ -8,7 +8,7 @@
 | 3, 4   |    L   |    H   |    L   |    L   |
 | 1, 3   |    H   |    H   |    L   |    H   |
 | 2, 4   |    H   |    H   |    H   |    L   |
-| 1, 4   |             switch 1/4            |
+| 1, 4   |:            switch 1/4           :|
 | 2, 3   |             switch 2/3            |
 |1, 2, 3 |            switch 1/2/3           |
 |2, 3, 4 |            switch 2/3/4           |
