@@ -9,7 +9,8 @@ long send_count = 0;
 bool isAuto = false;
 bool isAlarm = false;
 
-int sensor_limit = 850;
+int sensor_limit = 500;
+int interval = 500;
 
 void setup() 
 {
@@ -50,7 +51,11 @@ void loop()
 
 
   if (isAlarm) {
-    
+    if (current_time - previous_send_time >= interval) {
+      previous_send_time = current_time;
+
+      digitalWrite(led_pin, !digitalRead(led_pin));
+    }
   }
 }
 
@@ -86,13 +91,6 @@ void data_reading()
             isAuto = false;
             isAlarm = true;
             break;
-        //case 'r': // reset
-        //    alarmMode = false;
-        //    lightControlMode = false;
-        //    shouldReadSensor = false;
-        //    digitalWrite(led_pin, LOW);
-        //    break;
-        
         }
     }
 }
