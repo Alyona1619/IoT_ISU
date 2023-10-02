@@ -1,20 +1,23 @@
 #define sensor_pin A0
-#define led_pin 2
+#define led_pin2 2
+#define led_pin4 4
 
 bool streaming = false;
 bool send_one_value = false;
 long previous_send_time = 0;
 long send_count = 0;
 
-bool isAuto = false;
+bool isAuto = true;
 bool isAlarm = false;
 
 int sensor_limit = 500;
-int interval = 500;
+int interval = 300;
 
 void setup() 
 {
   Serial.begin(9600);
+  pinMode(led_pin2, OUTPUT);
+  pinMode(led_pin4, OUTPUT);
 }
 
 void loop() 
@@ -41,11 +44,13 @@ void loop()
     int sensor_value = analogRead(sensor_pin);
     if (sensor_value < sensor_limit) 
     {
-      digitalWrite(led_pin, HIGH);
+      digitalWrite(led_pin2, HIGH);
+      digitalWrite(led_pin4, LOW);
     }
     else 
     {
-      digitalWrite(led_pin, LOW);
+      digitalWrite(led_pin2, LOW);
+	  digitalWrite(led_pin4, HIGH);
     }
   }
 
@@ -54,7 +59,8 @@ void loop()
     if (current_time - previous_send_time >= interval) {
       previous_send_time = current_time;
 
-      digitalWrite(led_pin, !digitalRead(led_pin));
+      digitalWrite(led_pin2, !digitalRead(led_pin2));
+      digitalWrite(led_pin4, !digitalRead(led_pin4));
     }
   }
 }
@@ -80,17 +86,20 @@ void data_reading()
         case 'n': // on (hand mode)
             isAuto = false;
             isAlarm = false;
-            digitalWrite(led_pin, HIGH);
+            digitalWrite(led_pin2, HIGH);
+            digitalWrite(led_pin4, LOW);
             break;
         case 'f': // off (hand mode)
             isAuto = false;
             isAlarm = false;
-            digitalWrite(led_pin, LOW);
+            digitalWrite(led_pin2, LOW);
+            digitalWrite(led_pin4, HIGH);
             break;
         case 'a': // alarm system
             isAuto = false;
             isAlarm = true;
             break;
+        
         }
     }
 }
