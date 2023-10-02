@@ -7,6 +7,6 @@ i - auto turning on and turning off of light (depends on values of photo sensor)
 a - alarm system (blinking) <br />
 
 Demonsration: <br />
-<br />
+https://youtube.com/shorts/bTcQs_ps4J8 <br />
 
 ![alt tag](https://github.com/Alyona1619/IoT_ISU/blob/main/LedPhotoInteracive/LedPhotoInteractive.png)
