@@ -12,6 +12,7 @@ void setup()
   pinMode(PIN_D9, OUTPUT);
   pinMode(PIN_D10, INPUT_PULLUP);
   pinMode(PIN_D11, INPUT_PULLUP);
+  Serial.begin(9600);
 }
 
 void loop()
